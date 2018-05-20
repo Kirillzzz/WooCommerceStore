@@ -2,6 +2,8 @@
 package mx.niluxer.store.data.model;
 
 import java.util.List;
+
+import com.google.gson.Gson;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -734,75 +736,18 @@ public class Product {
         this.links = links;
     }
 
+
     @Override
     public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", slug='" + slug + '\'' +
-                ", permalink='" + permalink + '\'' +
-                ", dateCreated='" + dateCreated + '\'' +
-                ", dateCreatedGmt='" + dateCreatedGmt + '\'' +
-                ", dateModified='" + dateModified + '\'' +
-                ", dateModifiedGmt='" + dateModifiedGmt + '\'' +
-                ", type='" + type + '\'' +
-                ", status='" + status + '\'' +
-                ", featured=" + featured +
-                ", catalogVisibility='" + catalogVisibility + '\'' +
-                ", description='" + description + '\'' +
-                ", shortDescription='" + shortDescription + '\'' +
-                ", sku='" + sku + '\'' +
-                ", price='" + price + '\'' +
-                ", regularPrice='" + regularPrice + '\'' +
-                ", salePrice='" + salePrice + '\'' +
-                ", dateOnSaleFrom=" + dateOnSaleFrom +
-                ", dateOnSaleFromGmt=" + dateOnSaleFromGmt +
-                ", dateOnSaleTo=" + dateOnSaleTo +
-                ", dateOnSaleToGmt=" + dateOnSaleToGmt +
-                ", priceHtml='" + priceHtml + '\'' +
-                ", onSale=" + onSale +
-                ", purchasable=" + purchasable +
-                ", totalSales=" + totalSales +
-                ", virtual=" + virtual +
-                ", downloadable=" + downloadable +
-                ", downloads=" + downloads +
-                ", downloadLimit=" + downloadLimit +
-                ", downloadExpiry=" + downloadExpiry +
-                ", externalUrl='" + externalUrl + '\'' +
-                ", buttonText='" + buttonText + '\'' +
-                ", taxStatus='" + taxStatus + '\'' +
-                ", taxClass='" + taxClass + '\'' +
-                ", manageStock=" + manageStock +
-                ", stockQuantity=" + stockQuantity +
-                ", inStock=" + inStock +
-                ", backorders='" + backorders + '\'' +
-                ", backordersAllowed=" + backordersAllowed +
-                ", backordered=" + backordered +
-                ", soldIndividually=" + soldIndividually +
-                ", weight='" + weight + '\'' +
-                ", dimensions=" + dimensions +
-                ", shippingRequired=" + shippingRequired +
-                ", shippingTaxable=" + shippingTaxable +
-                ", shippingClass='" + shippingClass + '\'' +
-                ", shippingClassId=" + shippingClassId +
-                ", reviewsAllowed=" + reviewsAllowed +
-                ", averageRating='" + averageRating + '\'' +
-                ", ratingCount=" + ratingCount +
-                ", relatedIds=" + relatedIds +
-                ", upsellIds=" + upsellIds +
-                ", crossSellIds=" + crossSellIds +
-                ", parentId=" + parentId +
-                ", purchaseNote='" + purchaseNote + '\'' +
-                ", categories=" + categories +
-                ", tags=" + tags +
-                ", images=" + images +
-                ", attributes=" + attributes +
-                ", defaultAttributes=" + defaultAttributes +
-                ", variations=" + variations +
-                ", groupedProducts=" + groupedProducts +
-                ", menuOrder=" + menuOrder +
-                ", metaData=" + metaData +
-                ", links=" + links +
+        Gson gson = new Gson();
+        return gson.toJson(this);
+        /*return "{" +
+                "name:'" + name + '\'' +
+                ", type:'" + type + '\'' +
+                ", description:'" + description + '\'' +
+                ", regularPrice:'" + regularPrice + '\'' +
+                ", categories:" + categories +
                 '}';
+        */
     }
 }

@@ -28,15 +28,15 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
 
     private List<Product> mItems;
     private Context mContext;
-    private PostItemListener mItemListener;
+    private ProductItemListener mItemListener;
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
 
         public TextView tvProductName, tvProductPrice;
         public ImageView ivProductImage;
-        PostItemListener mItemListener;
+        ProductItemListener mItemListener;
 
-        public ViewHolder(View itemView, PostItemListener postItemListener) {
+        public ViewHolder(View itemView, ProductItemListener postItemListener) {
             super(itemView);
             tvProductName  = (TextView) itemView.findViewById(R.id.tvProductName);
             tvProductPrice = (TextView) itemView.findViewById(R.id.tvProductPrice);
@@ -44,18 +44,28 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
 
             this.mItemListener = postItemListener;
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
             Product item = getItem(getAdapterPosition());
-            this.mItemListener.onPostClick(item.getId());
+            this.mItemListener.onProductClick(item.getId());
 
             notifyDataSetChanged();
         }
+
+        @Override
+        public boolean onLongClick(View v) {
+            Product item = getItem(getAdapterPosition());
+            this.mItemListener.onProductLongClick(item);
+
+            //notifyDataSetChanged();
+            return true;
+        }
     }
 
-    public ProductsAdapter(Context context, List<Product> posts, PostItemListener itemListener) {
+    public ProductsAdapter(Context context, List<Product> posts, ProductItemListener itemListener) {
         mItems = posts;
         mContext = context;
         mItemListener = itemListener;
@@ -67,9 +77,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View postView = inflater.inflate(R.layout.product_item, parent, false);
+        View productView = inflater.inflate(R.layout.product_item, parent, false);
 
-        ViewHolder viewHolder = new ViewHolder(postView, this.mItemListener);
+        ViewHolder viewHolder = new ViewHolder(productView, this.mItemListener);
         return viewHolder;
     }
 
@@ -116,7 +126,8 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         return mItems.get(adapterPosition);
     }
 
-    public interface PostItemListener {
-        void onPostClick(long id);
+    public interface ProductItemListener {
+        void onProductClick(long id);
+        void onProductLongClick(Product product);
     }
 }
