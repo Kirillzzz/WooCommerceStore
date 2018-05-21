@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditText
+        android:id="@+id/txtProductName"
+        android:hint="Name"
+        android:text="My product "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/txtProductType"
+        android:hint="Type"
+        android:text="simple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtProductName"/>
+
+    <EditText
+        android:id="@+id/txtProductRegularPrice"
+        android:hint="Regular Price"
+        android:text="898"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtProductType"/>
+
+    <EditText
+        android:id="@+id/txtProductDescription"
+        android:hint="Description"
+        android:text="My Desc..."
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintTop_toBottomOf="@id/txtProductRegularPrice"/>
+
+    <EditText
+        android:id="@+id/txtProductCategory"
+        android:hint="Category"
+        android:text="9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtProductDescription"/>
+
+
+</android.support.constraint.ConstraintLayout>
