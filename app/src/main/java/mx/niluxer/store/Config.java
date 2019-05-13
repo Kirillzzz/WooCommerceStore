@@ -1,7 +1,7 @@
 package mx.niluxer.store;
 
 public class Config {
-    public static final String BASE_URL        = "https://10.74.134.10/~niluxer/wordpress/wp-json/wc/v2/";
-    public static final String consumer_key    = "ck_51e68e6fe9199ba970877db693f6527db8d0deac";
-    public static final String consumer_secret = "cs_c4cdcf7ce84828b3885ed23d28ff691b252fe71f";
+    public static final String BASE_URL        = "https://172.20.11.60/~niluxer/wordpress/wp-json/wc/v3/";
+    public static final String consumer_key    = "ck_34e40745961909d28c268f439cad9347ca3ab7c5";
+    public static final String consumer_secret = "cs_77d8ddddf7ca37d0fdb58645d189d426d26044c1";
 }

@@ -110,6 +110,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
                 e.printStackTrace();
             }
         });*/
+
     }
 
     @Override
