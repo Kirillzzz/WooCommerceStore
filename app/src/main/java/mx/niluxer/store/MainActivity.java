@@ -91,8 +91,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
-                //showErrorMessage();
                 Log.d("MainActivity", "error loading from API");
+                t.printStackTrace();
+                t.getMessage();
 
             }
         });
@@ -282,7 +283,7 @@ public class MainActivity extends AppCompatActivity {
                     p.setRegularPrice(txtProductRegularPrice.getText().toString());
                     p.setDescription(txtProductDescription.getText().toString());
                     Image image = new Image();
-                    image.setSrc("http://172.20.11.60/~niluxer/wordpress/wp-content/uploads/2018/11/album-1-600x600.jpg");
+                    image.setSrc("http://store/~niluxer/wordpress/wp-content/uploads/2018/11/album-1-600x600.jpg");
                     image.setPosition(0);
                     List<Image> images = new ArrayList<>();
                     images.add(image);

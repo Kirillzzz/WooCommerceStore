@@ -49,6 +49,7 @@ public class UnsafeOkHttpClient {
                 }
             });
 
+            builder.retryOnConnectionFailure(true);
             builder.addInterceptor(new BasicAuthInterceptor(Config.consumer_key, Config.consumer_secret));
             OkHttpClient okHttpClient = builder.build();
             return okHttpClient;
